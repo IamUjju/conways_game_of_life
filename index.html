@@ -31,6 +31,7 @@
         const cellSize = 10;
         const numRows = Math.floor(canvas.height / cellSize);
         const numCols = Math.floor(canvas.width / cellSize);
+        const borderWidth = 1;
 
         // Function to initialize the grid
         function createGrid() {
@@ -56,8 +57,13 @@
                 for (let j = 0; j < numCols; j++) {
                     if (grid[i][j] === 1) {
                         ctx.fillStyle = 'black';
-                        ctx.fillRect(j * cellSize, i *
-                                     cellSize, cellSize, cellSize);
+                        ctx.fillRect(j * cellSize + borderWidth/2, i *
+                                     cellSize + borderWidth/2, cellSize-borderWidth, cellSize-borderWidth);
+                    }
+                    else{
+                        ctx.fillStyle = 'yellow';
+                        ctx.fillRect(j * cellSize + borderWidth, i *
+                        cellSize + borderWidth, cellSize - borderWidth * 2, cellSize-borderWidth * 2);
                     }
                 }
             }
